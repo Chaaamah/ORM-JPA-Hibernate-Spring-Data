@@ -19,9 +19,9 @@ public class ProductAppApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		//productRepository.save(new Product(null, "Computer", 3400, 2));
-		//productRepository.save(new Product(null, "USB", 20, 1));
-		//productRepository.save(new Product(null, "Printer", 16400, 1));
+		productRepository.save(new Product(null, "Computer", 3400, 2));
+		productRepository.save(new Product(null, "USB", 20, 1));
+		productRepository.save(new Product(null, "Printer", 16400, 1));
 
 		List<Product> productList = productRepository.findAll();
 		productList.forEach( p -> {
@@ -53,6 +53,8 @@ public class ProductAppApplication implements CommandLineRunner {
 			System.out.println(p);
 		});
 
+		System.out.println("****************************Suppression****************************");
+		List<Product> productList4 = productRepository.deleteAllById(3);
 
 	}
 }
